@@ -1,0 +1,72 @@
+<html>
+    <head>
+    <title>BODY MASS INDEX</title>
+    <style>
+        body{
+            background-color: crimson;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .form{
+            width: 400px;
+            margin: 250px auto;
+            background-color: rgba(0,0,0,0.5);
+            color:azure;
+            padding: 10px 20px 20px 20px;
+            font-size: 15px;
+        }
+        .form h1,h3{
+            color:black;
+            text-align: center;
+        }
+        .form h3{
+            font-size: 25px;
+        }
+        .form label{
+            display: block
+        }
+        .input input{
+            border: 3px solid; 
+            margin: 10px 0px 15px;
+            font-size: 20px ;
+            width: 100%;
+
+        }
+        .btn{
+            text-align: center;
+            padding: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        button{
+            padding: 10px;
+            background-color: #83c5be;
+        }
+    </style>
+    </head>
+<body>
+    <div class="form">
+        <h1><b>BMI CALCULATORE</b></h1>
+        <h3 >HEMALISHA T (25017673)</h3>
+        <form method="post">
+        {% csrf_token %}
+        <div class="input">
+            <label for="Weight">Weight (in kg):</label>
+            <input type="number" name="weight" required value="{{weight}}">
+        </div>
+        <div class="input">
+            <label for="Height">Height (in cm):</label>
+            <input type="number" name="height" required value="{{height}}">
+        </div>
+        <div class="btn">
+            <button type="submit"><b>CALCULATE</b></button>
+        </div>
+        </form>
+        {% if bmi %}
+        <div class="input">
+            <label for="bmi">BMI: </label>
+            <input type="text" required value="{{bmi}}">
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
